@@ -34,7 +34,12 @@ MOST_LOVED_MELONS = {
     },
 }
 
-# YOUR ROUTES GO HERE
+
+@app.route("/top-melons")
+def display_top_melons():
+    """Displays top 4 melons from UberMelon."""
+
+    return render_template('/top-melons.html', MOST_LOVED_MELONS)
 
 
 if __name__ == "__main__":
