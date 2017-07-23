@@ -52,7 +52,7 @@ def store_username_session():
     session['username'] = request.args.get("username")
 
     # go back to top melons page
-    return redirect('/top-melons.html')
+    return redirect('/top-melons')
 
 
 # from homepage, goes here
@@ -60,7 +60,10 @@ def store_username_session():
 def display_top_melons():
     """Displays top 4 melons from UberMelon."""
 
-    return render_template('/top-melons.html', MOST_LOVED_MELONS)
+    # assign dict to var
+    fav_melons = MOST_LOVED_MELONS
+
+    return render_template('/top-melons.html', fav_melons=fav_melons)
 
 
 if __name__ == "__main__":

@@ -12,12 +12,12 @@
       <h1> Welcome, {{ session['username'] }} </h1>
 
 <!-- DISPLAYS TOP 4 MELONS -->
-      {% for melon in MOST_LOVED_MELONS %}
+      {% for melon in fav_melons %}
 
         <div class='melon-div'>
-          <h3> {{ session['username'] }}, this is a {{ MOST_LOVED_MELONS[melon]['name'] }} </h3>
-          <h2> Loved {{ MOST_LOVED_MELONS[melon]['num_loves'] }} times. </h2>
-          <img src={{ MOST_LOVED_MELONS[melon]['img'] }}>
+          <h3> {{ session['username'] }}, this is a {{ fav_melons[melon]['name'] }} </h3>
+          <h2> Loved {{ fav_melons[melon]['num_loves'] }} times. </h2>
+          <img src={{ fav_melons[melon]['img'] }}>
         </div>
 
       {% endfor %}
