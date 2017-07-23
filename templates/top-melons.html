@@ -16,15 +16,25 @@
 
 <!-- DISPLAYS TOP 4 MELONS -->
       {% for melon in fav_melons %}
-
         <div class='melon-div'>
           <h3> {{ session['username'] }}, this is a {{ fav_melons[melon]['name'] }} </h3>
           <h2> Loved {{ fav_melons[melon]['num_loves'] }} times. </h2>
           <img src={{ fav_melons[melon]['img'] }}>
         </div>
-
       {% endfor %}
+
+<!-- DROP DOWN MENU TO LOVE A MELON -->
+        Pick a melon to love.
+        <form action="/love-melon" method="POST">
+          <select name="melon-love">
+            {% for melon in fav_melons %}
+            <option value={{ fav_melons[melon] }}> {{ fav_melons[melon]['name'] }} </option>
+            {% endfor %}
+            <input type='submit'>
+          </select>
+        </form>
       {% endblock %}
+
     </body>
 
   </html>
