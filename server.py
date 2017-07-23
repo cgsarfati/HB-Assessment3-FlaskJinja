@@ -10,6 +10,7 @@ app.jinja_env.auto_reload = True
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = "ABC"
 
+
 ##################### GLOBAL VARIABLES #####################
 
 # Getting our list of MOST LOVED MELONS
@@ -36,8 +37,8 @@ MOST_LOVED_MELONS = {
     },
 }
 
- ##################### HOMEPAGE #####################
 
+ ##################### HOMEPAGE #####################
 
 # homepage url
 @app.route("/")
@@ -81,6 +82,8 @@ def display_top_melons():
         return redirect('/')
 
 
+##################### THANK YOU PAGE ######################
+
 # from top melon, goes here
 @app.route("/love-melon", methods=["POST"])
 def increase_melon_love():
@@ -93,6 +96,9 @@ def increase_melon_love():
     MOST_LOVED_MELONS[melon_loved]['num_loves'] += 1
 
     return render_template('thank-you.html')
+
+
+###########################################################
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
