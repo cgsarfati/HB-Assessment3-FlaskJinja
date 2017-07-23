@@ -1,14 +1,17 @@
+{% extends 'base.html' %}
+
 <!DOCTYPE html>
   <html>
 
     <head>
-      <title>Top Melons</title>
+      {% block title} Top Melons {% endblock %}
       <link rel="stylesheet" type="text/css" href="/static/styles.css">
     </head>
 
     <body>
 
 <!-- DISPLAY USERNAME FROM HOMEPAGE INPUT -->
+      {% block content}
       <h1> Welcome, {{ session['username'] }} </h1>
 
 <!-- DISPLAYS TOP 4 MELONS -->
@@ -21,6 +24,7 @@
         </div>
 
       {% endfor %}
+      {% endblock %}
     </body>
 
   </html>

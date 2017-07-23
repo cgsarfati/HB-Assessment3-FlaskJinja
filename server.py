@@ -40,6 +40,8 @@ MOST_LOVED_MELONS = {
 def display_homepage():
     """Displays homepage with username form."""
 
+    # check if there is a username session already
+    # if not, display homepage. if so, redirect to top-melons
     if 'username' in session:
         return redirect('/top-melons.html')
     else:
@@ -65,6 +67,8 @@ def display_top_melons():
     # assign dict to var
     fav_melons = MOST_LOVED_MELONS
 
+    # redirect back to homepage if no username session stored
+    # if username session exists, continue to top-melons
     if 'username' in session:
         return render_template('/top-melons.html', fav_melons=fav_melons)
     else:

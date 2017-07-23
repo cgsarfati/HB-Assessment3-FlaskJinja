@@ -1,13 +1,16 @@
+{% extends 'base.html' %}
+
 <!DOCTYPE html>
   <html>
 
     <head>
-      <title></title>
+      {% block title %} Homepage {% endblock %}
       <link rel="stylesheet" type="text/css" href="/static/styles.css">
     </head>
 
-<!-- TITLE -->
+<!-- MAIN HEADER -->
     <body>
+      {% block content %} 
       <h1> UberMelon's Most Loved Melons </h1>
 
 <!-- USERNAME FORM -->
@@ -15,6 +18,7 @@
         Enter Name <input type='text' name='username' required>
         <input type='submit'>
       </form>
+      {% endblock %}
     </body>
 
   </html>
