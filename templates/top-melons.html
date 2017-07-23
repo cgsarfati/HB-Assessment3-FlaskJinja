@@ -4,14 +4,14 @@
   <html>
 
     <head>
-      {% block title} Top Melons {% endblock %}
+      {% block title %} Top Melons {% endblock %}
       <link rel="stylesheet" type="text/css" href="/static/styles.css">
     </head>
 
     <body>
 
 <!-- DISPLAY USERNAME FROM HOMEPAGE INPUT -->
-      {% block content}
+      {% block content %}
       <h1> Welcome, {{ session['username'] }} </h1>
 
 <!-- DISPLAYS TOP 4 MELONS -->

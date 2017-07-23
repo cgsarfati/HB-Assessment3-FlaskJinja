@@ -10,6 +10,8 @@ app.jinja_env.auto_reload = True
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = "ABC"
 
+##################### GLOBAL VARIABLES #####################
+
 # Getting our list of MOST LOVED MELONS
 MOST_LOVED_MELONS = {
     'cren': {
@@ -34,6 +36,8 @@ MOST_LOVED_MELONS = {
     },
 }
 
+ ##################### HOMEPAGE #####################
+
 
 # homepage url
 @app.route("/")
@@ -43,7 +47,7 @@ def display_homepage():
     # check if there is a username session already
     # if not, display homepage. if so, redirect to top-melons
     if 'username' in session:
-        return redirect('/top-melons.html')
+        return redirect('/top-melons')
     else:
         return render_template('homepage.html')
 
@@ -58,6 +62,8 @@ def store_username_session():
     # go back to top melons page
     return redirect('/top-melons')
 
+
+##################### TOP MELONS PAGE ######################
 
 # from homepage, goes here
 @app.route("/top-melons")
