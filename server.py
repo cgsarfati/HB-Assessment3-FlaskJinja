@@ -40,8 +40,10 @@ MOST_LOVED_MELONS = {
 def display_homepage():
     """Displays homepage with username form."""
 
-    # return static html
-    return render_template('homepage.html')
+    if 'username' in session:
+        return redirect('/top-melons.html')
+    else:
+        return render_template('homepage.html')
 
 
 # from homepage, stores session info
@@ -63,7 +65,10 @@ def display_top_melons():
     # assign dict to var
     fav_melons = MOST_LOVED_MELONS
 
-    return render_template('/top-melons.html', fav_melons=fav_melons)
+    if 'username' in session:
+        return render_template('/top-melons.html', fav_melons=fav_melons)
+    else:
+        return redirect('/')
 
 
 if __name__ == "__main__":
