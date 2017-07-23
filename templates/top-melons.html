@@ -23,12 +23,14 @@
         </div>
       {% endfor %}
 
+        </br>
+
 <!-- DROP DOWN MENU TO LOVE A MELON -->
         Pick a melon to love.
         <form action="/love-melon" method="POST">
           <select name="melon-love">
             {% for melon in fav_melons %}
-            <option value={{ fav_melons[melon] }}> {{ fav_melons[melon]['name'] }} </option>
+            <option value={{ melon }}> {{ fav_melons[melon]['name'] }} </option>
             {% endfor %}
             <input type='submit'>
           </select>

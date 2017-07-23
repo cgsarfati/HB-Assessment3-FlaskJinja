@@ -81,6 +81,19 @@ def display_top_melons():
         return redirect('/')
 
 
+# from top melon, goes here
+@app.route("/love-melon", methods=["POST"])
+def increase_melon_love():
+    """Increases a melon's love count from choice in top-melon page."""
+
+    # get melon id (outermost key in global dict) as string, assign to var
+    melon_loved = request.form.get("melon-love")
+
+    #increment current num loves to 1
+    MOST_LOVED_MELONS[melon_loved]['num_loves'] += 1
+
+    return render_template('thank-you.html')
+
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
     # point that we invoke the DebugToolbarExtension

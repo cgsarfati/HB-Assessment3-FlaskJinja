@@ -9,7 +9,11 @@
     </head>
 
     <body>
-      {% block content %} CONTENT GOES HERE {% endblock %}
+      {% block content %}
+      Thank you, {{ session['username'] }}. </br>
+
+      <a href="/top-melons"> Return to Top Melons page. </a>
+      {% endblock %}
     </body>
 
   </html>
