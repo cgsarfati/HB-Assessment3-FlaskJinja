@@ -35,6 +35,27 @@ MOST_LOVED_MELONS = {
 }
 
 
+# homepage url
+@app.route("/")
+def display_homepage():
+    """Displays homepage with username form."""
+
+    # return static html
+    return render_template('homepage.html')
+
+
+# from homepage, stores session info
+@app.route("/get-name")
+def store_username_session():
+
+    # add username to session session from homepage form
+    session['username'] = request.args.get("username")
+
+    # go back to top melons page
+    return redirect('/top-melons.html')
+
+
+# from homepage, goes here
 @app.route("/top-melons")
 def display_top_melons():
     """Displays top 4 melons from UberMelon."""

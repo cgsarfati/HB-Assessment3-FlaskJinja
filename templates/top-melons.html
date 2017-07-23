@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Top Melons</title>
-    <link rel="stylesheet" type="text/css" href="/static/styles.css">
-</head>
-<body>
+  <html>
 
-<!-- Create a div for every Most Loved Melon using a Jinja for loop -->
+    <head>
+      <title>Top Melons</title>
+      <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    </head>
 
-{% for melon in MOST_LOVED_MELONS %}
-    <div class='melon-div'>
-        <h3> {{ MOST_LOVED_MELONS[melon]['name'] }} </h3>
-        <h2> Loved {{ MOST_LOVED_MELONS[melon]['num_loves'] }} times. </h2>
-        <img src={{ MOST_LOVED_MELONS[melon]['img'] }}>
-    </div>
-{% endfor %}
+    <body>
 
-</body>
-</html>
+<!-- DISPLAY USERNAME FROM HOMEPAGE INPUT -->
+      <h1> Welcome, {{ session['username'] }} </h1>
+
+<!-- DISPLAYS TOP 4 MELONS -->
+      {% for melon in MOST_LOVED_MELONS %}
+
+        <div class='melon-div'>
+          <h3> {{ session['username'] }}, this is a {{ MOST_LOVED_MELONS[melon]['name'] }} </h3>
+          <h2> Loved {{ MOST_LOVED_MELONS[melon]['num_loves'] }} times. </h2>
+          <img src={{ MOST_LOVED_MELONS[melon]['img'] }}>
+        </div>
+
+      {% endfor %}
+    </body>
+
+  </html>
